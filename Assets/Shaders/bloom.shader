@@ -68,10 +68,11 @@ Shader "Custom/Bloom"
                 float4 glow = blurX + blurY;
 
                 // sample camera texture
-                float4 mainTex = tex2D(_MainTex, input.uv);
+                float4 mainTex = tex2D(_MainTex, input.uv); 
 
+                //return tex2D(_GlowMap, input.uv); // TEST: glow map input only
+                //return mainTex + tex2D(_GlowMap, input.uv); // TEST: glow map (no blur) + camera
                 return mainTex + glow;
-                //return tex2D(_GlowMap, input.uv); // TEST: glow map input
 			}
 
 			ENDCG

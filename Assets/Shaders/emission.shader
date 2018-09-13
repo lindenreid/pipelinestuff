@@ -1,10 +1,5 @@
 Shader "Custom/Emission"
 {
-	Properties
-	{
-		_EmissionMap("Emission Map", 2D) = "white" {}
-	}
-
 	SubShader
 	{
 		Pass
@@ -15,7 +10,6 @@ Shader "Custom/Emission"
 			#include "UnityCG.cginc"
 			
 			// Properties
-			sampler2D _EmissionMap;
             sampler2D_float _CameraDepthTexture;
 
 			struct vertexInput
@@ -59,7 +53,7 @@ Shader "Custom/Emission"
 
                 return c;
                 //return float4(camDepth, camDepth, camDepth, 1); // test camera depth value
-                //return float4(input.linearDepth, input.linearDepth, input.linearDepth, 1); // test our depsth
+                //return float4(input.linearDepth, input.linearDepth, input.linearDepth, 1); // test our depth
                 //return float4(diff, diff, diff, 1);
 			}
 
